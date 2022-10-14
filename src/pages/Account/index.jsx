@@ -10,8 +10,8 @@ const Account = () => {
 
   const handleSingOut = async () => {
     try {
-      await logOut();
       navigate("/signin");
+      await logOut();
     } catch (err) {
       console.log(err);
     }
