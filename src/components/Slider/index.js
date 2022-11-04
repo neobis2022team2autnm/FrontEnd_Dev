@@ -7,7 +7,7 @@ const Slider = () => {
 
   
   const sliderLeft = () => {
-    const slider = document.getElementById("slider");
+    const slider = document.getElementById("slider1");
     if (slider.scrollLeft === 0) {
       slider.scrollLeft = 1956;
     } else {
@@ -16,7 +16,7 @@ const Slider = () => {
   };
 
   const sliderRight = () => {
-    const slider = document.getElementById("slider");
+    const slider = document.getElementById("slider1");
     if (slider.scrollLeft === 1956) {
       slider.scrollLeft = 0;
     } else {
@@ -32,7 +32,7 @@ const Slider = () => {
           onClick={sliderLeft}
         />
         <div
-          id="slider"
+          id="slider1"
           className="h-full w-full overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide "
         >
           {data.map((el) => (
