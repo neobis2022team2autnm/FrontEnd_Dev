@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
@@ -12,6 +13,7 @@ const App = () => {
         <Route path="/*" element={<Home />} />
         <Route path="/auth/*" element={<Auth />} />
       </Routes>
+
     </div>
   );
 };
