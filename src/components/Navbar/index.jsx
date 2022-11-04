@@ -1,22 +1,41 @@
+//import React and additional dependensice
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
+
+//import Redux dependencies
+import { useSelector } from "react-redux";
+
+//import components
+import Dropdown from "../Dropdown";
+import ModalPopap from "../Modal-popap";
+import Singin from "../Singin";
+
+//import icons
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import { RiBookletLine } from "react-icons/ri";
 import { CgKeyhole } from "react-icons/cg";
 import { TbNews } from "react-icons/tb";
 import { IoLanguageSharp } from "react-icons/io5";
-import Dropdown from "../Dropdown";
 
 const Navbar = () => {
+  //all states
   const [nav, setNav] = useState(false);
   const [dropdown, setDropdown] = useState(false);
+  const [modalActive, setModalActive] = useState(false);
 
+  //Code with redux toolkit
+  const { isLogged } = useSelector((state) => state.general);
+
+  //all functionality
   const handleNav = () => {
     setNav(!nav);
   };
 
   return (
-    <div className="flex justify-between items-center h-24 max-w-[1240px] mx-auto px-4 text-black">
-      <h1 className="w-full text-4xl font-bold text-[#00df9a]">S-TRIP.</h1>
+    <div className="flex justify-between items-center h-24  px-4 text-black">
+      <Link to="/" className="w-full text-4xl font-bold text-[#00df9a]">
+        S-TRIP.
+      </Link>
       <ul className="hidden md:flex">
         <li className="p-4 flex  items-center gap-x-1.5">
           <CgKeyhole size={20} />
@@ -43,11 +62,20 @@ const Navbar = () => {
           </button>
         </li>
         <li className="p-4">
-          <button className="bg-black hover:bg-black-700 text-white font-bold py-2 px-6 border border-black-700 rounded py-2 px-4">
+          <button
+            onClick={() => setModalActive(true)}
+            className="bg-black hover:bg-black-700 text-white font-bold py-2 px-6 border border-black-700 rounded py-2 px-4"
+          >
             Войти
           </button>
         </li>
       </ul>
+
+      {isLogged || (
+        <ModalPopap active={modalActive} setActive={setModalActive}>
+         <Singin />
+        </ModalPopap>
+      )}
       <div onClick={handleNav} className="block md:hidden">
         {nav ? <AiOutlineClose size={20} /> : <AiOutlineMenu size={20} />}
       </div>
