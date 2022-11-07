@@ -12,7 +12,7 @@ const App = () => {
     <div className="w-screen px=[1%] md:px-[5%] mx-auto">
       <Navbar />
       <Navigation/>
-      <Slider/>
+      <Slider className="py-28" />
       <Routes>
         <Route path="/*" element={<Home />} />
         <Route path="/auth/*" element={<Auth />} />

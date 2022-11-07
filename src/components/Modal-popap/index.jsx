@@ -7,7 +7,7 @@ import "./style.scss";
 const ModalPopap = (props) => {
   return (
     <div
-      className={props.active ? "modal active" : "modal"}
+      className={props.active ? "z-50 modal active" : "z-50 modal"}
       onClick={() => props.setActive(false)}
     >
       <div
