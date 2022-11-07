@@ -6,11 +6,11 @@ import { API } from "../utils/axiosConfig";
 export const auth = createAsyncThunk(
   "auth/auth",
   async (data, { rejectWithValue }) => {
-    const tokenData = {
-      auth_token: data,
-    };
+    // const tokenData = {
+    //   auth_token: data,
+    // };
     try {
-      const response = await API.post("users/google/", tokenData);
+      const response = await API.post("/google/", data);
       return response.data;
     } catch (e) {
       console.log(e);

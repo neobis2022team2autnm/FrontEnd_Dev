@@ -1,6 +1,6 @@
 //import React and additional dependensice
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link , useNavigate} from "react-router-dom";
 
 //import Redux dependencies
 import { useSelector } from "react-redux";
@@ -17,14 +17,20 @@ import { CgKeyhole } from "react-icons/cg";
 import { TbNews } from "react-icons/tb";
 import { IoLanguageSharp } from "react-icons/io5";
 
+//import assets
+import logo from "../../assets/icons/logo-svg.png";
+
 const Navbar = () => {
+  //Code with redux toolkit
+  const { isLogged } = useSelector((state) => state.general);
+
   //all states
   const [nav, setNav] = useState(false);
   const [dropdown, setDropdown] = useState(false);
   const [modalActive, setModalActive] = useState(false);
+  //console.log(modalActive)
 
-  //Code with redux toolkit
-  const { isLogged } = useSelector((state) => state.general);
+  const navigate = useNavigate();
 
   //all functionality
   const handleNav = () => {
@@ -71,11 +77,11 @@ const Navbar = () => {
         </li>
       </ul>
 
-      {isLogged || (
-        <ModalPopap active={modalActive} setActive={setModalActive}>
-         <Singin />
+      { 
+        <ModalPopap logo={logo}  active={modalActive} setActive={setModalActive}>
+          <Singin />
         </ModalPopap>
-      )}
+       }
       <div onClick={handleNav} className="block md:hidden">
         {nav ? <AiOutlineClose size={20} /> : <AiOutlineMenu size={20} />}
       </div>
