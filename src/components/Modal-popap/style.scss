@@ -11,16 +11,19 @@
   opacity: 0;
   pointer-events: none;
   transition: 0.5s;
-
+ 
   &.active {
     opacity: 1;
     pointer-events: all;
+   
   }
 
   &__content {
-    padding: 20px;
+    text-align: center;
+    padding: 25px;
     border-radius: 12px;
-    background-color: white;
+    background-color: #607D8B;
+    color: #fff;
     height: 400px;
     width: 400px;
     transform: scale(0.5);
@@ -30,4 +33,21 @@
       transform: scale(1);
     }
   }
+
+  &-logo {
+   height: 200px;
+    margin: 0 auto;
+  }
+
+  &-button{
+    padding: 5px 10px;
+    background-color:red
+  }
+
+  &-title{
+        padding-top: 12px;
+    padding-bottom: 11px;
+    font-size: 25px;
+  }
 }
+

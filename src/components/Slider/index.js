@@ -25,7 +25,7 @@ const Slider = () => {
   };
 
   return (
-    <div className="py-28 px-5">
+    <div className="px-5 py-28">
       <div className="reletive flex items-center">
         <SlArrowLeft
           className="hidden md:flex opacity-50 cursor-pointer hover:opacity-100 text-lg md:text-xl lg:text-3xl"

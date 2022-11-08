@@ -28,8 +28,8 @@ export const Signin = ({ status }) => {
 
   return (
     <form>
-      <div className={"google_login"}>
-        <div ref={googleBtn} />
+      <div  className={"google_login"}>
+        <button  ref={googleBtn} />
       </div>
     </form>
   );
