@@ -14,9 +14,16 @@ import "./style.scss";
 
 const Home = () => {
   //redux dependencies
+  
   const { isLogged, user } = useSelector((state) => state.general);
+
   const dispatch = useDispatch();
-  const handleLogout = () => dispatch(setLogout());
+  const handleLogout = () =>{ dispatch(setLogout())
+    dispatch(isLogged(false));
+  }
+
+
+  
 
   return (
     <div className="page">

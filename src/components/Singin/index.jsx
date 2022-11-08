@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 //import components
 import { LoginByGoogle } from "../../port/index";
 
-export const Signin = ({ status }) => {
+export const Signin = ({ status, active,setActive }) => {
   const googleBtn = useRef(null);
 
   const handleCallbackResponse = (response) => {
@@ -24,10 +24,16 @@ export const Signin = ({ status }) => {
       theme: "outline",
       size: "large",
     });
+
   }, []);
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setActive(false)
+  };
+
   return (
-    <form>
+    <form onClick={handleSubmit}>
       <div  className={"google_login"}>
         <button  ref={googleBtn} />
       </div>

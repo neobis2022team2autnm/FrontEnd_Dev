@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Link , useNavigate} from "react-router-dom";
 
 //import Redux dependencies
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 //import components
 import Dropdown from "../Dropdown";
@@ -19,6 +19,7 @@ import { IoLanguageSharp } from "react-icons/io5";
 
 //import assets
 import logo from "../../assets/icons/logo-svg.png";
+//import { is } from "immer/dist/internal";
 
 const Navbar = () => {
   //Code with redux toolkit
@@ -36,6 +37,7 @@ const Navbar = () => {
   const handleNav = () => {
     setNav(!nav);
   };
+  const dispatch = useDispatch();
 
   return (
     <div className="flex justify-between items-center h-24  px-4 text-black">
@@ -69,7 +71,8 @@ const Navbar = () => {
         </li>
         <li className="p-4">
           <button
-            onClick={() => setModalActive(true)}
+            onClick={() => {setModalActive(true)
+           dispatch(isLogged(true)) }}
             className="bg-black hover:bg-black-700 text-white font-bold py-2 px-6 border border-black-700 rounded py-2 px-4"
           >
             Войти
@@ -78,10 +81,10 @@ const Navbar = () => {
       </ul>
 
       { 
-        <ModalPopap logo={logo}  active={modalActive} setActive={setModalActive}>
-          <Singin />
+        <ModalPopap logo={logo} active={modalActive} setActive={setModalActive}>
+          <Singin active={modalActive} setActive={setModalActive} />
         </ModalPopap>
-       }
+      }
       <div onClick={handleNav} className="block md:hidden">
         {nav ? <AiOutlineClose size={20} /> : <AiOutlineMenu size={20} />}
       </div>
