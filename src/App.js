@@ -14,10 +14,9 @@ const App = () => {
     <div className="w-screen px=[1%] md:px-[5%] lg:px-[15%] mx-auto">
       <Navbar />
       <Navigation />
-      <SearchBar/>
-      <Slider  />
+      <SearchBar />
       <Routes>
-        {/* <Route path="/*" element={<Home />} /> */}
+        <Route path="/*" element={<Home />} />
         <Route path="/auth/*" element={<Auth />} />
       </Routes>
       <Footer />

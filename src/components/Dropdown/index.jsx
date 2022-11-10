@@ -13,7 +13,7 @@ function Dropdown() {
 
   
   return (
-    <>
+    <button className="group-focus:block">
       <ul
         className={
           dropdown
@@ -35,7 +35,7 @@ function Dropdown() {
           </button>
         </li>
       </ul>
-    </>
+    </button>
   );
 }
 

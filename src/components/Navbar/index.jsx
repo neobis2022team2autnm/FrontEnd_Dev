@@ -1,6 +1,6 @@
 //import React and additional dependensice
-import React, { useState } from "react";
-import { Link , useNavigate} from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 //import Redux dependencies
 import { useDispatch, useSelector } from "react-redux";
@@ -19,9 +19,26 @@ import { IoLanguageSharp } from "react-icons/io5";
 
 //import assets
 import logo from "../../assets/icons/logo-svg.png";
+
+import { useTranslation } from "react-i18next";
+import i18next from "i18next";
 //import { is } from "immer/dist/internal";
 
+import "./style.scss";
+
 const Navbar = () => {
+
+  const { i18n, t } = useTranslation(["Navbar"]);
+
+  	useEffect(() => {
+      if (localStorage.getItem("i18nextLng")?.length > 2) {
+        i18next.changeLanguage("en");
+      }
+    }, []);
+
+    const handleLanguageChange = (e) => {
+      i18n.changeLanguage(e.target.value);
+    };
   //Code with redux toolkit
   const { isLogged } = useSelector((state) => state.general);
 
@@ -30,8 +47,6 @@ const Navbar = () => {
   const [dropdown, setDropdown] = useState(false);
   const [modalActive, setModalActive] = useState(false);
   //console.log(modalActive)
-
-  const navigate = useNavigate();
 
   //all functionality
   const handleNav = () => {
@@ -58,21 +73,27 @@ const Navbar = () => {
           Новости
         </li>
         <li
-          onClick={() => setDropdown(!dropdown)}
+          onMouseEnter={() => setDropdown(true)}
+          onMouseLeave={() => setDropdown(false)}
           className="p-4  cursor-pointer"
         >
           <button className=" relative flex  items-center gap-x-1.5 bg-transparent hover:bg-black text-black-700 font-semibold hover:text-white py-2 px-4 border border-stone-900 hover:border-transparent rounded">
             <IoLanguageSharp size={20} />
             Языки
-            <div className="absolute top-full min-w-full w-max bg-white shadow-md mt-1 rounded">
+            <div
+              // style={{ width: "100%", height: "100%" }}
+              className="z-10 hiiden group absolute top-full min-w-full w-max bg-white shadow-md mt-1 rounded"
+            >
               {dropdown && <Dropdown />}
             </div>
           </button>
         </li>
         <li className="p-4">
           <button
-            onClick={() => {setModalActive(true)
-           dispatch(isLogged(true)) }}
+            onClick={() => {
+              setModalActive(true);
+              dispatch(isLogged(true));
+            }}
             className="bg-black hover:bg-black-700 text-white font-bold py-2 px-6 border border-black-700 rounded py-2 px-4"
           >
             Войти
@@ -80,7 +101,7 @@ const Navbar = () => {
         </li>
       </ul>
 
-      { 
+      {
         <ModalPopap logo={logo} active={modalActive} setActive={setModalActive}>
           <Singin active={modalActive} setActive={setModalActive} />
         </ModalPopap>
@@ -111,7 +132,8 @@ const Navbar = () => {
           Новости
         </li>
         <li
-          onClick={() => setDropdown(!dropdown)}
+          onMouseEnter={() => setDropdown(true)}
+          onMouseLeave={() => setDropdown(false)}
           className="p-4  cursor-pointer"
         >
           <button className=" relative flex  items-center gap-x-1.5 bg-transparent hover:bg-black text-black-700 font-semibold hover:text-white py-2 px-4 border border-white-900 hover:border-transparent rounded">
