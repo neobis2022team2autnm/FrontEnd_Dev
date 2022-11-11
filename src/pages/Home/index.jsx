@@ -13,6 +13,7 @@ import Slider from "../../components/Slider";
 //import styles
 import "./style.scss";
 
+import { useTranslation } from "react-i18next";
 const sliderData = [
   {
     id: 1,
@@ -33,7 +34,7 @@ const sliderData = [
 ];
 
 const Home = () => {
-
+  const { t } = useTranslation()
   const { isLogged, user } = useSelector((state) => state.general);
 
   const dispatch = useDispatch();
@@ -44,10 +45,10 @@ const Home = () => {
 
   return (
     <div>
-      <Slider  title="Про какое место хотите узнать больше?" />
-      <Slider  title="Популярные статьи" />
-      <Slider  title="Места, где можно вкусно поесть" />
-      <Slider  title="Здесь вы можете отдохнуть" />
+      <Slider  title={t('want_to_know_more')} id="slider-1" />
+      <Slider  title={t('popular_articles')} id="slider-2" />
+      <Slider  title={t('places_where_i_can_eat_good_food')}  id="slider-3" />
+      <Slider  title={t('you_can_have_a_good_time_here')} id="slider-4" />
       <div className="board">
         {isLogged ? <Board user={user} logout={handleLogout} /> : <Unlogged />}
       </div>

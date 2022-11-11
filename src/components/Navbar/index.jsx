@@ -4,7 +4,6 @@ import { Link, useNavigate } from "react-router-dom";
 
 //import Redux dependencies
 import { useDispatch, useSelector } from "react-redux";
-
 //import components
 import Dropdown from "../Dropdown";
 import ModalPopap from "../Modal-popap";
@@ -28,17 +27,7 @@ import "./style.scss";
 
 const Navbar = () => {
 
-  const { i18n, t } = useTranslation(["Navbar"]);
-
-  	useEffect(() => {
-      if (localStorage.getItem("i18nextLng")?.length > 2) {
-        i18next.changeLanguage("en");
-      }
-    }, []);
-
-    const handleLanguageChange = (e) => {
-      i18n.changeLanguage(e.target.value);
-    };
+  const { t } = useTranslation()
   //Code with redux toolkit
   const { isLogged } = useSelector((state) => state.general);
 
@@ -62,15 +51,15 @@ const Navbar = () => {
       <ul className="hidden md:flex">
         <li className="p-4 flex  items-center gap-x-1.5">
           <CgKeyhole size={20} />
-          Лайфхаки
+          {t('lifeHacks')}
         </li>
         <li className="p-4 flex  items-center gap-x-1.5">
           <RiBookletLine size={20} />
-          Статьи
+          {t('blog')}
         </li>
         <li className="p-4 flex  items-center gap-x-1.5">
           <TbNews size={23} />
-          Новости
+          {t('news')}
         </li>
         <li
           onMouseEnter={() => setDropdown(true)}
@@ -79,7 +68,7 @@ const Navbar = () => {
         >
           <button className=" relative flex  items-center gap-x-1.5 bg-transparent hover:bg-black text-black-700 font-semibold hover:text-white py-2 px-4 border border-stone-900 hover:border-transparent rounded">
             <IoLanguageSharp size={20} />
-            Языки
+            {t('language')}
             <div
               // style={{ width: "100%", height: "100%" }}
               className="z-10 hiiden group absolute top-full min-w-full w-max bg-white shadow-md mt-1 rounded"
@@ -96,7 +85,7 @@ const Navbar = () => {
             }}
             className="bg-black hover:bg-black-700 text-white font-bold py-2 px-6 border border-black-700 rounded py-2 px-4"
           >
-            Войти
+            {t('login')}
           </button>
         </li>
       </ul>
@@ -121,15 +110,15 @@ const Navbar = () => {
         </h1>
         <li className="p-4 flex  items-center gap-x-1.5">
           <CgKeyhole size={20} />
-          Лайфхаки
+          {t('lifeHacks')}
         </li>
         <li className="p-4 flex  items-center gap-x-1.5">
           <RiBookletLine size={20} />
-          Статьи
+          {t('blog')}
         </li>
         <li className="p-4 flex  items-center gap-x-1.5">
           <TbNews size={23} />
-          Новости
+          {t('news')}
         </li>
         <li
           onMouseEnter={() => setDropdown(true)}
@@ -138,7 +127,7 @@ const Navbar = () => {
         >
           <button className=" relative flex  items-center gap-x-1.5 bg-transparent hover:bg-black text-black-700 font-semibold hover:text-white py-2 px-4 border border-white-900 hover:border-transparent rounded">
             <IoLanguageSharp size={20} />
-            Языки
+            {t('language')}
             <div className="absolute top-full min-w-full w-max bg-white shadow-md mt-1 rounded">
               {dropdown && <Dropdown />}
             </div>
@@ -146,7 +135,7 @@ const Navbar = () => {
         </li>
         <li className="p-4">
           <button className="bg-black hover:bg-black-700 text-white font-bold py-2 px-6 border border-black-700 rounded py-2 px-4">
-            Войти
+          {t('login')}
           </button>
         </li>
       </ul>

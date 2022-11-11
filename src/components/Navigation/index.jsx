@@ -4,6 +4,7 @@ import RestaurantOutlinedIcon from "@mui/icons-material/RestaurantOutlined";
 import PhotoAlbumOutlinedIcon from "@mui/icons-material/PhotoAlbumOutlined";
 import {  SlArrowRight } from "react-icons/sl";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 const Navigation = () => {
   const [nav, setNav] = useState(false) 
 
@@ -19,6 +20,7 @@ const Navigation = () => {
     }
   };
 
+  const { t } = useTranslation()
 
 
 
@@ -34,7 +36,7 @@ const Navigation = () => {
             <li className="flex  items-center justify-center px-[30px]  space-x-2 mr-2 bg-transparent group-hover:bg-[#9ca3af]  text-[#607D8B] font-semibold hover:text-white py-2 md:py-4 border border-[#607D8B] hover:border-transparent rounded-lg">
               <TfiMapAlt className="text-2xl"/>
               <a className="text=xl text-[#607D8B] group-hover:text-white" src="#">
-                Туры
+              {t('tour')}
               </a>
             </li>
           </div>
@@ -42,7 +44,7 @@ const Navigation = () => {
             <li className="  flex space-x-2 mr-2 px-[30px]  justify-center items-center bg-transparent group-hover:bg-[#9ca3af]  text-[#607D8B] font-semibold hover:text-white py-2 md:py-4  border border-[#607D8B] hover:border-transparent rounded-lg">
               <AiOutlineHome size={25} />
               <a className="text=xl text-[#607D8B] group-hover:text-white" src="#">
-                Отели
+              {t('hotel')}
               </a>
             </li>
           </div>
@@ -50,7 +52,7 @@ const Navigation = () => {
             <li className=" flex space-x-2 mr-2 px-[30px] justify-center items-center bg-transparent group-hover:bg-[#9ca3af]  text-[#607D8B] font-semibold hover:text-white py-2 md:py-4  border border-[#607D8B] hover:border-transparent rounded-lg">
               <RestaurantOutlinedIcon size={30} />
               <a className="text=xl text-[#607D8B] group-hover:text-white" src="#">
-                Рестораны
+              {t('restaurant')}
               </a>
             </li>
           </div>
@@ -58,7 +60,7 @@ const Navigation = () => {
             <li className=" flex space-x-2 items-center px-[30px] bg-transparent group-hover:bg-[#9ca3af]  text-[#607D8B] font-semibold hover:text-white py-2 md:py-4 justify-center border border-[#607D8B] hover:border-transparent rounded-lg">
               <PhotoAlbumOutlinedIcon size={30} />
               <a className="text=xl text-[#607D8B] group-hover:text-white" src="#">
-                Альбом воспоминаний
+              {t('album')}
               </a>
             </li>
            
