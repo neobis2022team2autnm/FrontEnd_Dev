@@ -1,35 +1,34 @@
 //import React hooks
 import React, { useState } from "react";
-import i18next from 'i18next'
+import i18next from "i18next";
 
 //import icons
 import { RU, US } from "country-flag-icons/react/3x2";
+import ReactCountryFlag from "react-country-flag";
+
 // import styles
 import "./style.scss";
 
-
 const languages = [
   {
-    code: 'ru',
-    name: 'Русский',
+    code: "ru",
+    name: "Русский",
+    icon: "RU",
   },
   {
-    code: 'eng',
-    name: 'English',
-  }
-]
+    code: "eng",
+    name: "English",
+    icon: "US",
+  },
+];
 
 function Dropdown() {
-
-
-
-
   const [dropdown, setDropdown] = useState(false);
 
-   const handleClose = (code) => {
-   if(dropdown){
-    setDropdown(!dropdown)
-   } 
+  const handleClose = (code) => {
+    if (dropdown) {
+      setDropdown(!dropdown);
+    }
 
     i18next.changeLanguage(code);
   };
@@ -43,24 +42,30 @@ function Dropdown() {
         }
         onClick={() => setDropdown(!dropdown)}
       >
-    {languages.map((el)=>{
-  
-      
-      return(
-      <li key={el.code}>
-      <button className="px-4 flex  items-center gap-x-1.5 py-1 hover:bg-gray-100 border-b text-black"  onClick={() => {
-              handleClose(el.code);
-            }}>
-        {el.name}
-      </button>
-    </li>
-    )
-    })}    
+        {languages.map((el) => {
+          return (
+            <li key={el.code}>
+              <button
+                className="px-4 flex  items-center gap-x-1.5 py-1 hover:bg-gray-100 border-b text-black"
+                onClick={() => {
+                  handleClose(el.code);
+                }}
+              >
+                <ReactCountryFlag
+                  countryCode={el.icon}
+                  svg
+                  cdnUrl="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.3/flags/1x1/"
+                  cdnSuffix="svg"
+                  title="US"
+                />
+                {el.name}
+              </button>
+            </li>
+          );
+        })}
       </ul>
     </button>
   );
 }
 
 export default Dropdown;
-
-
