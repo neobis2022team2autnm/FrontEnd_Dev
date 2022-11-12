@@ -18,7 +18,7 @@
   "loading": "loading...",
   "name": "name",
   "surname": "surname",
-  "login": "login",
+  "login": "Login",
   "logout": "logout",
   "password": "password",
   "phone_number": "phone number",
@@ -28,5 +28,5 @@
   "popular_articles": "Popular articles",
   "places_where_i_can_eat_good_food": "Places where I can eat good food",
   "you_can_have_a_good_time_here": "You can have a good time here",
-  "language": "language"
+  "language": "Language"
 }

@@ -3,6 +3,12 @@ import React from "react";
 
 //import redux dependencies
 import { useSelector, useDispatch } from "react-redux";
+import {
+  regions,
+  articles,
+  foodPlace,
+  reluxPlace,
+} from "../../assets/mock-data/data";
 
 //import components
 import { Board } from "../../components/Board";
@@ -14,27 +20,12 @@ import Slider from "../../components/Slider";
 import "./style.scss";
 
 import { useTranslation } from "react-i18next";
-const sliderData = [
-  {
-    id: 1,
-    title: "Про какое место хотите узнать больше?",
-  },
-  {
-    id: 2,
-    title: "Популярные статьи",
-  },
-  {
-    id: 3,
-    title: "Места, где можно вкусно поесть",
-  },
-  {
-    id: 4,
-    title: "Здесь вы можете отдохнуть",
-  },
-];
+import Articles from "../../components/Articles";
+import Hero from "../../components/Hero";
 
+console.log(regions);
 const Home = () => {
-  const { t } = useTranslation()
+  const { t } = useTranslation();
   const { isLogged, user } = useSelector((state) => state.general);
 
   const dispatch = useDispatch();
@@ -48,10 +39,20 @@ const Home = () => {
       <div className="board">
         {isLogged ? <Board user={user} logout={handleLogout} /> : <Unlogged />}
       </div>
-      <Slider title={t("want_to_know_more")} id="slider-1" />
-      <Slider title={t("popular_articles")} id="slider-2" />
-      <Slider title={t("places_where_i_can_eat_good_food")} id="slider-3" />
-      <Slider title={t("you_can_have_a_good_time_here")} id="slider-4" />
+      <Slider data={regions} title={t("want_to_know_more")} id="slider-1" />
+      <Hero />
+      <Slider data={articles} title={t("popular_articles")} id="slider-2" />
+      <Slider
+        data={foodPlace}
+        title={t("places_where_i_can_eat_good_food")}
+        id="slider-3"
+      />
+      <Articles />
+      <Slider
+        data={reluxPlace}
+        title={t("you_can_have_a_good_time_here")}
+        id="slider-4"
+      />
     </div>
   );
 };

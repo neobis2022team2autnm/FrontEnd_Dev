@@ -1,0 +1,32 @@
+.cart-item {
+  padding: 20px;
+  background-color: #607d8b;
+  border-radius: 15px;
+
+  &__title {
+    text-align: center;
+    color: white;
+    font-size: 35px;
+    padding: 10px;
+    position: relative;
+    padding-bottom: 15px;
+
+    &:after {
+      content: "Пользователь : Роман Ильич";
+      font-size: 16px;
+      position: absolute;
+      top: 59px;
+      left: 120px;
+    }
+  }
+}
+
+
+.articles-img{
+  width: 100px;
+}
+
+
+.title{
+  margin-top: 50px;
+}

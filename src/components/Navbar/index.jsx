@@ -29,7 +29,7 @@ const Navbar = () => {
 
   const { t } = useTranslation()
   //Code with redux toolkit
-  const { isLogged } = useSelector((state) => state.general);
+  const { isLogged, user } = useSelector((state) => state.general);
 
   //all states
   const [nav, setNav] = useState(false);
