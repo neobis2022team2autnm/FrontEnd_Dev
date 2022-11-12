@@ -1,7 +1,7 @@
 import React from "react";
 
 const Unlogged = () => {
-  return <div>Зарегайся черт</div>;
+  return <div>Добро Пожаловать в SILKROAD TRIP</div>;
 };
 
 export default Unlogged;
