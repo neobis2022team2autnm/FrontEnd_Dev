@@ -57,10 +57,11 @@ const Navbar = () => {
           <RiBookletLine size={20} />
           {t('blog')}
         </li>
-        <li className="p-4 flex  items-center gap-x-1.5">
+        <Link path='/plan'>  <li className="p-4 flex cursor-pointer items-center gap-x-1.5">
           <TbNews size={23} />
           {t('news')}
-        </li>
+        </li> </Link>
+        
         <li
           onMouseEnter={() => setDropdown(true)}
           onMouseLeave={() => setDropdown(false)}

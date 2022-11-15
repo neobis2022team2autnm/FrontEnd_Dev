@@ -27,7 +27,9 @@ console.log(regions);
 const Home = () => {
   const { t } = useTranslation();
   const { isLogged, user } = useSelector((state) => state.general);
-
+  const { data } = useSelector(state=> state.trello)
+  const {liked} = useSelector((state)=> state.trello)
+  console.log(liked);
   const dispatch = useDispatch();
   const handleLogout = () => {
     dispatch(setLogout());
@@ -39,9 +41,9 @@ const Home = () => {
       <div className="board">
         {isLogged ? <Board user={user} logout={handleLogout} /> : <Unlogged />}
       </div>
-      <Slider data={regions} title={t("want_to_know_more")} id="slider-1" />
+      <Slider data={data} title={t("want_to_know_more")} id="slider-1" />
       <Hero />
-      <Slider data={articles} title={t("popular_articles")} id="slider-2" />
+      <Slider data={data} title={t("popular_articles")} id="slider-2" />
       <Slider
         data={foodPlace}
         title={t("places_where_i_can_eat_good_food")}

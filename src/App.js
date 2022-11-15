@@ -11,6 +11,7 @@ import i18next from 'i18next'
 import { initReactI18next } from 'react-i18next'
 import HttpApi from 'i18next-http-backend'
 import LanguageDetector from 'i18next-browser-languagedetector'
+import TrelloPage from "./pages/Trello";
 
 
 
@@ -40,10 +41,11 @@ const App = () => {
     <div className="w-screen px=[1%] md:px-[5%] lg:px-[15%] mx-auto">
       <Navbar />
       <Navigation />
-      <SearchBar />
+      
       <Routes>
-        <Route path="/*" element={<Home />} />
-        <Route path="/auth/*" element={<Auth />} />
+        {/* <Route path="/" element={<Home />} /> */}
+        {/* <Route path="/auth/*" element={<Auth />} /> */}
+        <Route path="/" element={<TrelloPage/>}/>
       </Routes>
       <Footer />
     </div>

@@ -1,42 +1,50 @@
 export const regions = [
   {
-    id: 1,
+    id: '1',
     img: './regions/bishkek.png',
-    text: "Весь Кыргызстан"
+    text: "Весь Кыргызстан",
+    liked: false,
   },
   {
-    id: 2,
+    id: '2',
     img: './regions/chui.png',
+    liked: false,
     text: "Чуйская область"
   },
   {
-    id: 3,
+    id: '3',
     img: './regions/osh.png',
+    liked: false,
     text: "Ошская область"
   },
   {
-    id: 4,
+    id: '4',
     img: './regions/talas.png',
+    liked: true,
     text: "Таласская область"
   },
   {
-    id: 5,
+    id: '5',
     img: './regions/ik.png',
+    liked: false,
     text: "Ыссык-Кульская область"
   },
   {
-    id: 6,
+    id: '6',
     img: './regions/naryn.png',
+    liked: true,
     text: "Нарынская область"
   },
   {
-    id: 7,
+    id: '7',
     img: './regions/jalal-abad.png',
+    liked: false,
     text: "Джалал-Аблаская область"
   },
   {
-    id: 8,
+    id: '8',
     img: './regions/batken.png',
+    liked: false,
     text: "Баткенская область"
   },
 ];
