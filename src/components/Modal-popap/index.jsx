@@ -1,10 +1,9 @@
 //import React
 import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 //import styles
-import "./style.scss";
-
+import './style.scss'
 const ModalPopap = (props) => {
 
   const { isLogged } = useSelector((state) => state.general);

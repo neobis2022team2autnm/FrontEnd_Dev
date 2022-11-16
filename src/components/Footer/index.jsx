@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   FaDribbbleSquare,
   FaFacebookSquare,
@@ -6,8 +6,12 @@ import {
   FaInstagram,
   FaTwitterSquare,
 } from "react-icons/fa";
+import TechPopap from "./TechPopap";
+import techImg from '../../assets/icons/icons8-whatsapp (1).svg';
 
 const Footer = () => {
+  const [modalActive, setModalActive] = useState(false);
+
   return (
     <div className="w-100% py-16 px-4 grid lg:grid-cols-3 gap-8 text-black-300">
       <div>
@@ -63,6 +67,14 @@ const Footer = () => {
           </ul>
         </div>
       </div>
+      <button onClick={() => {
+        setModalActive(true);
+      }} className='tech-support'>
+        <img src={techImg} alt='question' />
+      </button>
+
+      <TechPopap active={modalActive} setActive={setModalActive} />
+
     </div>
   );
 };
