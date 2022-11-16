@@ -1,6 +1,4 @@
-// React && Redux
 import { createAsyncThunk } from "@reduxjs/toolkit";
-//import utils
 import { API } from "../utils/axiosConfig";
 
 export const auth = createAsyncThunk(

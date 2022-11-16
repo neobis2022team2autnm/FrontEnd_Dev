@@ -9,7 +9,7 @@ import {
 
 const Footer = () => {
   return (
-    <div className=" py-16 px-4 grid lg:grid-cols-3 gap-8 text-black-300">
+    <div className="w-100% py-16 px-4 grid lg:grid-cols-3 gap-8 text-black-300">
       <div>
         <h1 className="w-full text-3xl font-bold text-[#00df9a]">S-TRIP.</h1>
         <p className="py-4">
