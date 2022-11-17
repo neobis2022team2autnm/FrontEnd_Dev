@@ -10,7 +10,7 @@ import TechPopap from "./TechPopap";
 import techImg from '../../assets/icons/icons8-whatsapp (1).svg';
 
 const Footer = () => {
-  const [modalActive, setModalActive] = useState(false);
+  const [modalActive, setModalActive] = useState(true);
 
   return (
     <div className="w-100% py-16 px-4 grid lg:grid-cols-3 gap-8 text-black-300">
@@ -67,6 +67,7 @@ const Footer = () => {
           </ul>
         </div>
       </div>
+
       <button onClick={() => {
         setModalActive(true);
       }} className='tech-support'>
