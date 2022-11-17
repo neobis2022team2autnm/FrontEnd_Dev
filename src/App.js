@@ -43,9 +43,9 @@ const App = () => {
       <Navigation />
       
       <Routes>
-        {/* <Route path="/" element={<Home />} /> */}
-        {/* <Route path="/auth/*" element={<Auth />} /> */}
-        <Route path="/" element={<TrelloPage/>}/>
+        <Route path="/" element={<Home />} /> 
+        <Route path="/auth/*" element={<Auth />} />
+         {/* <Route path="/" element={<TrelloPage/>}/>  */}
       </Routes>
       <Footer />
     </div>

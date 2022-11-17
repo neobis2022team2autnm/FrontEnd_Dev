@@ -1,48 +1,50 @@
+import {v4} from 'uuid'
+
 export const regions = [
   {
-    id: '1',
+    id: v4(),
     img: './regions/bishkek.png',
     text: "Весь Кыргызстан",
     liked: false,
   },
   {
-    id: '2',
+    id: v4(),
     img: './regions/chui.png',
     liked: false,
     text: "Чуйская область"
   },
   {
-    id: '3',
+    id: v4(),
     img: './regions/osh.png',
     liked: false,
     text: "Ошская область"
   },
   {
-    id: '4',
+    id: v4(),
     img: './regions/talas.png',
     liked: true,
     text: "Таласская область"
   },
   {
-    id: '5',
+    id: v4(),
     img: './regions/ik.png',
     liked: false,
     text: "Ыссык-Кульская область"
   },
   {
-    id: '6',
+    id: v4(),
     img: './regions/naryn.png',
     liked: true,
     text: "Нарынская область"
   },
   {
-    id: '7',
+    id: v4(),
     img: './regions/jalal-abad.png',
     liked: false,
     text: "Джалал-Аблаская область"
   },
   {
-    id: '8',
+    id: v4(),
     img: './regions/batken.png',
     liked: false,
     text: "Баткенская область"
