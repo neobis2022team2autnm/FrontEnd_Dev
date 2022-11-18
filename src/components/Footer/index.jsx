@@ -8,6 +8,9 @@ import {
 } from "react-icons/fa";
 import TechPopap from "./TechPopap";
 import techImg from '../../assets/icons/icons8-whatsapp (1).svg';
+import MessengerCustomerChat from 'react-messenger-customer-chat';
+
+
 
 const Footer = () => {
   const [modalActive, setModalActive] = useState(true);
@@ -68,14 +71,17 @@ const Footer = () => {
         </div>
       </div>
 
-      <button onClick={() => {
+      {/* <button onClick={() => {
         setModalActive(true);
       }} className='tech-support'>
         <img src={techImg} alt='question' />
       </button>
 
-      <TechPopap active={modalActive} setActive={setModalActive} />
-
+      <TechPopap active={modalActive} setActive={setModalActive} /> */}
+      <MessengerCustomerChat
+        pageId="<100058363045044>"
+        appId="<635759148287900>"
+      />,
     </div>
   );
 };
