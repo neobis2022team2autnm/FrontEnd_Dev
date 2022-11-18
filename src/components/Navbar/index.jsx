@@ -1,43 +1,28 @@
-//import React and additional dependensice
-import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
-
-//import Redux dependencies
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-//import components
 import Dropdown from "../Dropdown";
 import ModalPopap from "../Modal-popap";
 import Singin from "../Singin";
-
-//import icons
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import { RiBookletLine } from "react-icons/ri";
 import { CgKeyhole } from "react-icons/cg";
 import { TbNews } from "react-icons/tb";
 import { IoLanguageSharp } from "react-icons/io5";
-
-//import assets
 import logo from "../../assets/icons/logo-svg.png";
-
 import { useTranslation } from "react-i18next";
-import i18next from "i18next";
-//import { is } from "immer/dist/internal";
-
 import "./style.scss";
 
 const Navbar = () => {
 
   const { t } = useTranslation()
-  //Code with redux toolkit
-  const { isLogged, user } = useSelector((state) => state.general);
 
-  //all states
+  const { isLogged } = useSelector((state) => state.general);
+
   const [nav, setNav] = useState(false);
   const [dropdown, setDropdown] = useState(false);
   const [modalActive, setModalActive] = useState(false);
-  //console.log(modalActive)
 
-  //all functionality
   const handleNav = () => {
     setNav(!nav);
   };
@@ -49,28 +34,27 @@ const Navbar = () => {
         S-TRIP.
       </Link>
       <ul className="hidden md:flex">
-        <li className="p-4 flex  items-center gap-x-1.5">
+        <li className="item p-4  flex  items-center gap-x-1.5">
           <CgKeyhole size={20} />
           {t('lifeHacks')}
         </li>
-        <li className="p-4 flex  items-center gap-x-1.5">
+        <li className="item p-4 flex  items-center gap-x-1.5">
           <RiBookletLine size={20} />
           {t('blog')}
         </li>
-        <li className="p-4 flex  items-center gap-x-1.5">
+        <li className="item p-4 flex  items-center gap-x-1.5">
           <TbNews size={23} />
           {t('news')}
         </li>
         <li
           onMouseEnter={() => setDropdown(true)}
           onMouseLeave={() => setDropdown(false)}
-          className="p-4  cursor-pointer"
+          className="item p-4  cursor-pointer"
         >
           <button className=" relative flex  items-center gap-x-1.5 bg-transparent hover:bg-black text-black-700 font-semibold hover:text-white py-2 px-4 border border-stone-900 hover:border-transparent rounded">
             <IoLanguageSharp size={20} />
             {t('language')}
             <div
-              // style={{ width: "100%", height: "100%" }}
               className="z-10 hiiden group absolute top-full min-w-full w-max bg-white shadow-md mt-1 rounded"
             >
               {dropdown && <Dropdown />}
@@ -135,7 +119,7 @@ const Navbar = () => {
         </li>
         <li className="p-4">
           <button className="bg-black hover:bg-black-700 text-white font-bold py-2 px-6 border border-black-700 rounded py-2 px-4">
-          {t('login')}
+            {t('login')}
           </button>
         </li>
       </ul>

@@ -22,6 +22,8 @@ import "./style.scss";
 import { useTranslation } from "react-i18next";
 import Articles from "../../components/Articles";
 import Hero from "../../components/Hero";
+import Navigation from "../../components/Navigation";
+import SearchBar from "../../components/Search-bar";
 
 console.log(regions);
 const Home = () => {
@@ -35,10 +37,12 @@ const Home = () => {
   };
 
   return (
-    <div>
-      <div className="board">
+    <>
+      <Navigation />
+      <SearchBar />
+      {/* <div className="board">
         {isLogged ? <Board user={user} logout={handleLogout} /> : <Unlogged />}
-      </div>
+      </div> */}
       <Slider data={regions} title={t("want_to_know_more")} id="slider-1" />
       <Hero />
       <Slider data={articles} title={t("popular_articles")} id="slider-2" />
@@ -53,7 +57,7 @@ const Home = () => {
         title={t("you_can_have_a_good_time_here")}
         id="slider-4"
       />
-    </div>
+    </>
   );
 };
 

@@ -25,9 +25,9 @@ console.log(data[0])
 
   return (
     <>
-      <h2 className='text-2xl mt-10 mb-5'>{title}</h2>
+      <span className='text-2xl mt-10 mb-5'>{title}</span>
 
-      <div className="w-100% px-2">
+      <div className="w-50% px-2">
         <div className="reletive flex items-center">
           <SlArrowLeft
             className="hidden md:flex opacity-50 cursor-pointer hover:opacity-100 text-lg md:text-xl lg:text-3xl"

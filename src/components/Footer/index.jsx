@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   FaDribbbleSquare,
   FaFacebookSquare,
@@ -6,10 +6,17 @@ import {
   FaInstagram,
   FaTwitterSquare,
 } from "react-icons/fa";
+import TechPopap from "./TechPopap";
+import techImg from '../../assets/icons/icons8-whatsapp (1).svg';
+import MessengerCustomerChat from 'react-messenger-customer-chat';
+
+
 
 const Footer = () => {
+  const [modalActive, setModalActive] = useState(true);
+
   return (
-    <div className=" py-16 px-4 grid lg:grid-cols-3 gap-8 text-black-300">
+    <div className="w-100% py-16 px-4 grid lg:grid-cols-3 gap-8 text-black-300">
       <div>
         <h1 className="w-full text-3xl font-bold text-[#00df9a]">S-TRIP.</h1>
         <p className="py-4">
@@ -63,6 +70,18 @@ const Footer = () => {
           </ul>
         </div>
       </div>
+
+      {/* <button onClick={() => {
+        setModalActive(true);
+      }} className='tech-support'>
+        <img src={techImg} alt='question' />
+      </button>
+
+      <TechPopap active={modalActive} setActive={setModalActive} /> */}
+      <MessengerCustomerChat
+        pageId="<100058363045044>"
+        appId="<635759148287900>"
+      />,
     </div>
   );
 };

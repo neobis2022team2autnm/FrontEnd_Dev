@@ -11,18 +11,17 @@
   opacity: 0;
   pointer-events: none;
   transition: 0.5s;
- 
+
   &.active {
     opacity: 1;
     pointer-events: all;
-   
   }
 
   &__content {
     text-align: center;
     padding: 25px;
     border-radius: 12px;
-    background-color: #607D8B;
+    background-color: #607d8b;
     color: #fff;
     height: 400px;
     width: 400px;
@@ -35,19 +34,18 @@
   }
 
   &-logo {
-   height: 200px;
+    height: 200px;
     margin: 0 auto;
   }
 
-  &-button{
+  &-button {
     padding: 5px 10px;
-    background-color:red
+    background-color: red;
   }
 
-  &-title{
-        padding-top: 12px;
+  &-title {
+    padding-top: 12px;
     padding-bottom: 11px;
     font-size: 25px;
   }
 }
-
