@@ -1,5 +1,5 @@
 //import React and additional dependensice
-import React from "react";
+import React, { useEffect } from "react";
 
 //import redux dependencies
 import { useSelector, useDispatch } from "react-redux";
@@ -22,13 +22,24 @@ import "./style.scss";
 import { useTranslation } from "react-i18next";
 import Articles from "../../components/Articles";
 import Hero from "../../components/Hero";
+import { getPlaces } from "../../redux/reducers/dashBordSlice";
 
 console.log(regions);
 const Home = () => {
-  const { t } = useTranslation();
-  const { isLogged, user } = useSelector((state) => state.general);
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
+
+  const { t } = useTranslation();
+
+  useEffect(()=>{
+    dispatch(getPlaces())
+  },[])
+
+  const { isLogged, user } = useSelector((state) => state.general);
+  const  dashbordData = useSelector((state) => state.dashbord);
+
+
+  console.log(dashbordData);
   const handleLogout = () => {
     dispatch(setLogout());
     dispatch(isLogged(false));
